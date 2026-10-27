@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dharshan Vetrivelan</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Dharshan Vetrivelan builds interactive 3D things for the web, like objects you can take apart in your browser.">
+<meta name="description" content="Dharshan Vetrivelan builds interactive 3D things for the web, like 3D assembly guides made from paper manuals.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;600&display=swap">
@@ -69,6 +69,7 @@ h2 { font: 600 26px/1.25 var(--font-body); letter-spacing: -0.3px; margin: 0 0 6
 .shot img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
 .shot figcaption { font-size: 14px; color: var(--ink-soft); margin-top: 8px; padding-inline: 40px; }
 .facts { font-size: 15px; color: var(--ink-soft); }
+.fineprint { font-size: 13px; color: var(--ink-soft); margin-top: 18px; }
 .links { display: flex; flex-wrap: wrap; gap: 6px 22px; font-weight: 600; font-size: 17px; }
 
 .closing p { color: var(--ink-soft); }
@@ -91,15 +92,14 @@ footer { font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--li
   <header>
     <a class="name" href="#top">Dharshan Vetrivelan</a>
     <nav aria-label="Main">
-      <a href="#projects">Projects</a>
+      <a href="#project">Project</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="intro" id="top">
     <h1>Hi, I’m Dharshan.</h1>
-    <p>I build interactive 3D things for the web. Lately that means objects you can take apart in your browser, one screw at a time, and put back together.</p>
-    <p>These are the two projects I’ve been working on. Both run in any modern browser, phones included.</p>
+    <p>I build interactive 3D things for the web. Right now that means turning paper assembly manuals into 3D guides you can step through, turn around, and actually follow.</p>
     <div class="contact-line">
       <span>dv2617@nyu.edu</span><button class="copy" type="button" data-copy="dv2617@nyu.edu">Copy</button>
       <a href="https://www.linkedin.com/in/dharshanvetrivelan" target="_blank" rel="noopener">LinkedIn</a>
@@ -107,41 +107,28 @@ footer { font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--li
     </div>
   </section>
 
-  <p class="section-label" id="projects">Projects</p>
+  <p class="section-label" id="project">Project</p>
 
   <article class="project">
-    <h2>Kaputle Workbench</h2>
+    <h2>A paper manual, as a 3D guide</h2>
     <p class="when">October 2026</p>
     <figure class="shot">
-      <img src="assets/kaputle-beam.jpg" width="1280" height="780" alt="A 3D orange flashlight on a green cutting mat, switched on, throwing a beam of light down a wooden workbench.">
+      <img src="assets/console-built.jpg" width="1280" height="780" alt="A finished 3D dark-brown console table with a lower shelf, next to the step list of the assembly guide.">
     </figure>
-    <p>A flashlight you can take apart and rebuild. I wanted it to behave like the real thing, so parts only come off in an order that makes sense: the tail cap before the batteries, the head before the bulb.</p>
-    <p>It only lights up when the circuit is actually complete. Unscrew the tail cap while it’s on and it goes dark. Take the head off and the bare bulb still glows, just without a beam. If you get stuck, a guided build walks you through putting it back together.</p>
+    <p>I took the 8-page paper manual for IKEA’s LACK console table and turned it into an interactive 3D guide. It follows the manual step for step, in the same order: the bolts go into the legs while they lie flat, the table is built upside down, and it flips upright at the end, just like the drawings.</p>
+    <p>Every piece of hardware shows the part number printed in the manual, so you can match it to what’s in the box. Each step says which manual step it comes from, and a blue outline shows where the next part goes.</p>
     <figure class="shot">
-      <img src="assets/kaputle-apart.jpg" width="1280" height="780" loading="lazy" alt="The flashlight fully taken apart: tail cap with spring, two batteries, bulb, head and lens laid out on the mat with labels.">
-      <figcaption>Fully taken apart. You can inspect any part up close.</figcaption>
+      <img src="assets/console-lower.jpg" width="1280" height="780" loading="lazy" alt="Step 8 of 11, manual step 5: the upside-down legs and shelf are about to be lowered onto the tabletop, shown as a blue outline.">
+      <figcaption>Manual step 5: lift the legs and shelf, and lower them onto the tabletop.</figcaption>
     </figure>
-    <p class="facts">9 parts · 7-step guided build · Three.js</p>
+    <p>Nothing is hand-animated. The player reads one file that lists every part and every step, and builds the whole guide from it. I’m also building a tool where Claude reads a manual PDF and drafts that file, so a new product doesn’t need new code.</p>
+    <p class="facts">40 parts · 11 steps · all 7 manual steps · Three.js</p>
     <p class="links">
-      <a href="https://dharshanvk-code.github.io/kaputle/" target="_blank" rel="noopener">Try it →</a>
+      <a href="https://dharshanvk-code.github.io/kaputle/guide/?product=console" target="_blank" rel="noopener">Try it →</a>
+      <a href="https://www.ikea.com/us/en/assembly_instructions/lack-console-table-black-brown__AA-492774-5-1.pdf" target="_blank" rel="noopener">Original manual (ikea.com) →</a>
       <a href="https://github.com/dharshanvk-code/kaputle" target="_blank" rel="noopener">Code on GitHub →</a>
     </p>
-  </article>
-
-  <article class="project">
-    <h2>Assembly guide player</h2>
-    <p class="when">October 2026</p>
-    <figure class="shot">
-      <img src="assets/guide-bookshelf.jpg" width="1200" height="740" loading="lazy" alt="Step 5 of a 3D bookshelf assembly guide: a blue outline shows where the right side panel goes.">
-      <figcaption>Step 5 of 10. The blue outline shows where the next panel goes.</figcaption>
-    </figure>
-    <p>After the flashlight I wondered whether the same idea could work for flat-pack furniture. This player reads one file that lists every part’s size and position, plus the steps in order. From that it builds the whole guide: the parts, the box contents on the floor, and the animation for each step.</p>
-    <p>The bookshelf is just a file. A different product would be a different file, with no new code. Next I’m testing whether AI can write that file straight from a paper manual.</p>
-    <p class="facts">32 parts · 10 steps · one JSON file</p>
-    <p class="links">
-      <a href="https://dharshanvk-code.github.io/kaputle/guide/" target="_blank" rel="noopener">Try the bookshelf →</a>
-      <a href="https://github.com/dharshanvk-code/kaputle/blob/main/guide/products/bookshelf.json" target="_blank" rel="noopener">See the file →</a>
-    </p>
+    <p class="fineprint">Not affiliated with IKEA. The manual is IKEA’s; the 3D model and guide are my own, with sizes estimated from the drawings.</p>
   </article>
 
   <section class="closing">
@@ -151,7 +138,7 @@ footer { font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--li
 
   <section class="closing" id="contact">
     <p class="section-label">Contact</p>
-    <p>If you sell a physical product and want a 3D viewer or an assembly guide like these, or you just want to talk about the projects, email me.</p>
+    <p>If you sell a physical product and want an assembly guide like this one, or you just want to talk about it, email me.</p>
     <p class="email"><a href="mailto:dv2617@nyu.edu">dv2617@nyu.edu</a> <button class="copy" type="button" data-copy="dv2617@nyu.edu">Copy</button></p>
     <p><a href="https://www.linkedin.com/in/dharshanvetrivelan" target="_blank" rel="noopener">LinkedIn</a></p>
   </section>
