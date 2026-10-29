@@ -98,7 +98,7 @@ h2 { font: 800 clamp(30px, 4vw, 44px)/1.1 var(--font-display); letter-spacing: -
 
 .work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 40px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; }
-.card video { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #dfe3e8; }
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #dfe3e8; }
 .card .body { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .card .tag { font: 500 12px var(--font-mono); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
 .card h3 { font: 800 26px/1.15 var(--font-display); letter-spacing: -0.4px; margin: 0; }
@@ -166,7 +166,7 @@ footer { border-top: 1px solid var(--line); margin-top: 80px; padding-block: 22p
       <h1>Paper manuals, rebuilt in 3D you can actually follow.</h1>
       <p class="lede">This is a real 52-page IKEA manual. Drag it around, or press play and watch the whole dresser build itself, every part number straight from the box.</p>
       <div class="cta">
-        <a class="btn primary" href="https://dharshanvk-code.github.io/kaputle/guide/?product=hemnes" target="_blank" rel="noopener">Open the full guide <span aria-hidden="true">→</span></a>
+        <a class="btn primary" href="https://dharshanvk-code.github.io/kaputle/guide/?product=hemnes">Open the full guide <span aria-hidden="true">→</span></a>
         <a class="btn" href="#how">How it works <span aria-hidden="true">↓</span></a>
       </div>
       <div class="demo">
@@ -205,28 +205,28 @@ footer { border-top: 1px solid var(--line); margin-top: 80px; padding-block: 22p
       <h2>Two manuals so far: an easy one and a hard one.</h2>
       <div class="work">
         <article class="card">
-          <video src="assets/dresser-build.mp4" poster="assets/dresser-card.jpg" muted loop playsinline preload="metadata" aria-label="Time-lapse of the 3D dresser being built from the box, step by step"></video>
+          <img src="assets/console-card.jpg" width="960" height="600" loading="lazy" alt="The finished 3D dark-brown console table with a lower shelf.">
+          <div class="body">
+            <span class="tag">The easy one</span>
+            <h3>Console table</h3>
+            <p>Built upside down and flipped upright at the end, just like the drawings in the manual.</p>
+            <p class="meta">8 pages · 40 parts · 11 steps</p>
+            <div class="links">
+              <a href="https://dharshanvk-code.github.io/kaputle/guide/?product=console">Try it →</a>
+              <a href="https://www.ikea.com/us/en/assembly_instructions/lack-console-table-black-brown__AA-492774-5-1.pdf" target="_blank" rel="noopener">Original manual ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/dresser-card.jpg" width="960" height="600" loading="lazy" alt="The finished 3D white eight-drawer dresser.">
           <div class="body">
             <span class="tag">The hard one</span>
             <h3>8-drawer dresser</h3>
             <p>Built on its side, stood up, laid on its front for the back panels, then eight drawers, all in the manual’s order.</p>
             <p class="meta">52 pages · 497 parts · 95 steps</p>
             <div class="links">
-              <a href="https://dharshanvk-code.github.io/kaputle/guide/?product=hemnes" target="_blank" rel="noopener">Try it →</a>
+              <a href="https://dharshanvk-code.github.io/kaputle/guide/?product=hemnes">Try it →</a>
               <a href="https://www.ikea.com/us/en/assembly_instructions/hemnes-8-drawer-dresser-white-stain__AA-2406539-5-100.pdf" target="_blank" rel="noopener">Original manual ↗</a>
-            </div>
-          </div>
-        </article>
-        <article class="card">
-          <video src="assets/console-build.mp4" poster="assets/console-card.jpg" muted loop playsinline preload="metadata" aria-label="Time-lapse of the 3D console table being built upside down and flipped upright"></video>
-          <div class="body">
-            <span class="tag">The first one</span>
-            <h3>Console table</h3>
-            <p>Built upside down and flipped upright at the end, just like the drawings in the manual.</p>
-            <p class="meta">8 pages · 40 parts · 11 steps</p>
-            <div class="links">
-              <a href="https://dharshanvk-code.github.io/kaputle/guide/?product=console" target="_blank" rel="noopener">Try it →</a>
-              <a href="https://www.ikea.com/us/en/assembly_instructions/lack-console-table-black-brown__AA-492774-5-1.pdf" target="_blank" rel="noopener">Original manual ↗</a>
             </div>
           </div>
         </article>
@@ -277,21 +277,6 @@ footer { border-top: 1px solid var(--line); margin-top: 80px; padding-block: 22p
       if (e.origin === 'https://dharshanvk-code.github.io' && e.data && e.data.kaputle === 'ready') show();
     });
     setTimeout(show, 20000);
-  })();
-
-  // Card videos play while they're on screen, unless the visitor prefers less motion.
-  (function () {
-    var videos = document.querySelectorAll('.card video');
-    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    videos.forEach(function (v) {
-      if (still) { v.controls = true; return; }
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { var p = v.play(); if (p) p.catch(function () { v.controls = true; }); }
-          else v.pause();
-        });
-      }, { threshold: 0.35 }).observe(v);
-    });
   })();
 
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
