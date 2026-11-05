@@ -121,6 +121,10 @@ h2 { font: 800 clamp(30px, 4vw, 44px)/1.1 var(--font-display); letter-spacing: -
 .card .links a { text-decoration: none; }
 .card .links a:first-child { color: var(--accent); }
 .card .links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.card.wide { grid-column: 1 / -1; flex-direction: row; }
+.card.wide img { width: 55%; aspect-ratio: auto; min-height: 100%; }
+.card.wide .body { padding: 28px; justify-content: center; }
+.card.wide .links { margin-top: 0; }
 .fineprint { font-size: 13px; color: var(--ink-soft); margin-top: 18px; }
 .fineprint a { color: var(--ink-soft); }
 
@@ -144,6 +148,9 @@ footer { border-top: 1px solid var(--line); margin-top: 80px; padding-block: 22p
 
 @media (max-width: 860px) {
   .steps, .work, .about { grid-template-columns: minmax(0, 1fr); }
+  .card.wide { flex-direction: column; }
+  .card.wide img { width: 100%; aspect-ratio: 16 / 10; min-height: 0; }
+  .card.wide .body { padding: 22px 22px 24px; }
   .about { gap: 0; }
   .about .text { padding-top: 24px; }
   section { padding-top: 88px; }
@@ -215,7 +222,7 @@ footer { border-top: 1px solid var(--line); margin-top: 80px; padding-block: 22p
 
     <section id="work">
       <p class="label">Work</p>
-      <h2>Two manuals so far: an easy one and a hard one.</h2>
+      <h2>An easy one, a hard one, and one the tool built by itself.</h2>
       <div class="work">
         <article class="card">
           <img src="assets/console-finished.jpg" width="960" height="600" loading="lazy" alt="The finished 3D dark-brown console table with a lower shelf.">
@@ -240,6 +247,19 @@ footer { border-top: 1px solid var(--line); margin-top: 80px; padding-block: 22p
             <div class="links">
               <a href="https://dharshanvk-code.github.io/kaputle/guide/?product=hemnes">Try it →</a>
               <a href="https://www.ikea.com/us/en/assembly_instructions/hemnes-8-drawer-dresser-white-stain__AA-2406539-5-100.pdf" target="_blank" rel="noopener">Original manual ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="card wide">
+          <img src="assets/chest-finished.jpg" width="960" height="600" loading="lazy" alt="The finished 3D white two-drawer chest.">
+          <div class="body">
+            <span class="tag">Built by the tool</span>
+            <h3>2-drawer chest</h3>
+            <p>I gave the 32-page manual to my manual tool, which has Claude read the drawings and write the guide. It wrote all 42 steps in one go, and the guide is published exactly as it came out, with no fixes by hand.</p>
+            <p class="meta">32 pages · 185 parts · 42 steps</p>
+            <div class="links">
+              <a href="https://dharshanvk-code.github.io/kaputle/guide/?product=hemnes-2-drawer">Try it →</a>
+              <a href="https://www.ikea.com/us/en/assembly_instructions/hemnes-2-drawer-chest-white-stain__AA-2173989-5-100.pdf" target="_blank" rel="noopener">Original manual ↗</a>
             </div>
           </div>
         </article>
